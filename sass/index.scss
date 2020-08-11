@@ -1,0 +1,182 @@
+/* Base  colors
+#7ed56f  .//light green
+#55c57a   .//medium green
+#28b485   .//dark greeen
+*/
+
+/* ---UNIVERSAL SELECTOR RESET--------- */
+
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+$color-white: #fff;
+$color-grey: #777;
+$color-black: #000;
+*,
+*::after,
+*::before {
+  margin: 0.5rem;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  /*   font-size: 16px;  */
+  box-sizing: border-box;
+  color: #fff;
+}
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-dark, 0.8),
+      rgba($color-primary-light, 0.8)
+    ),
+    url(../img/food.jpg);
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  position: relative;
+  background-attachment: fixed;
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+  &__logo {
+    height: 4rem;
+  }
+  &__text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -40%);
+    -webkit-transform: translate(-50%, -40%);
+    -moz-transform: translate(-50%, -40%);
+    -ms-transform: translate(-50%, -40%);
+    -o-transform: translate(-50%, -40%);
+  }
+}
+
+.outdoors {
+  line-height: 1.4;
+  backface-visibility: hidden;
+  text-transform: uppercase;
+  -webkit-backface-visibility: hidden;
+  &--firstheading {
+    display: block;
+    font-size: 6rem;
+    letter-spacing: 3rem;
+    animation-name: moveFromLeftToRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+  }
+  &--secondheading {
+    display: block;
+    letter-spacing: 1.9rem;
+    font-size: 2rem;
+    animation-name: moveFromRightToLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+  }
+}
+
+@keyframes moveFromLeftToRight {
+  0% {
+    transform: translateX(-12rem);
+    opacity: 0;
+  }
+  80% {
+    transform: translateX(1rem);
+    transform: translateX(1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes moveFromRightToLeft {
+  0% {
+    transform: translateX(12rem);
+    opacity: 0;
+  }
+  80% {
+    transform: translateX(-1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes moveFromBottom {
+  0% {
+    transform: translateY(4rem);
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn {
+  &:link,
+  &:visited {
+    position: relative;
+    text-decoration: none;
+    color: $color-grey;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    font-weight: 400;
+    background-color: $color-white;
+    padding: 1.5rem 3rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all 0.35s;
+  }
+  &--white {
+    margin-top: 50px;
+    &:hover {
+      transform: translateY(-0.3rem);
+      box-shadow: 0px 1rem 4rem rgba($color-black, 0.5);
+    }
+    &:active {
+      transform: translateY(-0.1rem);
+      box-shadow: 0px 0.5rem 2rem rgba($color-black, 0.2);
+    }
+    &::after {
+      background-color: $color-white;
+    }
+  }
+  &::after {
+    content: "";
+    width: 90%;
+    height: 90%;
+    border-radius: 10rem;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    transition: all 0.3s;
+  }
+  &:hover::after {
+    transform: scaleX(1.8) scaleY(1.4);
+    opacity: 0;
+    box-shadow: 0px 0.5rem 1rem $color-primary;
+  }
+  &--animated {
+    animation: moveFromBottom 0.6s ease-out 0.3s;
+    animation-fill-mode: backwards; //applies the style at the start before the animations starts.ie styles at keyframe 0%
+  }
+}

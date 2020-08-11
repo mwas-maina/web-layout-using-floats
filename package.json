@@ -1,0 +1,17 @@
+{
+  "name": "advancedcss",
+  "version": "1.0.0",
+  "description": "sass packages",
+  "main": "index.js",
+  "scripts": {
+    "sass:compile": "node-sass sass/index.scss css/style.css -w"
+  },
+  "author": "mwas",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.14.1"
+  },
+  "dependencies": {
+    "jquery": "^3.5.1"
+  }
+}
