@@ -1,0 +1,76 @@
+.btn {
+  &:link,
+  &:visited {
+    position: relative;
+    text-decoration: none;
+    color: $color-grey;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    font-weight: 400;
+    background-color: $color-white;
+    padding: 1.5rem 3rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all 0.35s;
+  }
+  &--white {
+    margin-top: 50px;
+    &:hover {
+      transform: translateY(-0.3rem);
+      box-shadow: 0px 1rem 4rem rgba($color-black, 0.5);
+    }
+    &:active {
+      transform: translateY(-0.1rem);
+      box-shadow: 0px 0.5rem 2rem rgba($color-black, 0.2);
+    }
+    &::after {
+      background-color: $color-white;
+    }
+  }
+  &::after {
+    content: "";
+    width: 90%;
+    height: 90%;
+    border-radius: 10rem;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    transition: all 0.3s;
+  }
+  &:hover::after {
+    transform: scaleX(1.8) scaleY(1.4);
+    opacity: 0;
+    box-shadow: 0px 0.5rem 1rem $color-primary;
+  }
+  &--animated {
+    animation: moveFromBottom 0.6s ease-out 0.3s;
+    animation-fill-mode: backwards; //applies the style at the start before the animations starts.ie styles at keyframe 0%
+  }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: 1.6rem;
+    text-decoration: none;
+    border-bottom: 1px solid $color-primary;
+    margin-bottom: 2px;
+    display: inline-block;
+    transition: all 0.2s;
+    padding: 5.5px;
+    color: $color-primary;
+  }
+  &:hover {
+    transform: translateY(-1rem);
+    background-color: $color-primary;
+    color: $color-white;
+    border-bottom: transparent;
+    box-shadow: 2px 1rem 2rem rgba($color: $color-black, $alpha: 0.3rem);
+  }
+  &:active {
+    transform: translateY(0);
+    box-shadow: 1rem 0.5rem 1rem rgba($color: $color-black, $alpha: 0.2rem);
+  }
+}
